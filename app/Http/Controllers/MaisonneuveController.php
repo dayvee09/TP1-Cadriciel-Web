@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use App\Models\Maisonneuve;
 use App\Models\Ville;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Hash;
 
 class MaisonneuveController extends Controller
 {
@@ -39,13 +42,21 @@ class MaisonneuveController extends Controller
      */
     public function store(Request $request)
     {
+
+        $newUser = User::create([
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+
         $newEtudiant = Maisonneuve::create([
             'nom' => $request->nom,
             'adresse' => $request->adresse,
             'phone' => $request->phone,
             'ddn' => $request->ddn,
-            'email' => $request->email,
-            'ville_id' => $request->ville_id
+            'ville_id' => $request->ville_id,
+            'users_id' => $newUser->id
         ]);
 
         // return $newEtudiant;
@@ -60,10 +71,12 @@ class MaisonneuveController extends Controller
      */
     public function show(Maisonneuve $etudiant)
     {
+        $email = new Maisonneuve;
+        $email = $email->selectEmail($etudiant->id);
         $imgCount = $etudiant->id;
         $ville = Ville::find($etudiant->ville_id);
         // $etudiant = SELECT * FROM blog_posts WHERE id = $blogPost
-        return view('maisonneuve.show', ['etudiant' => $etudiant, 'ville' => $ville, 'imgCount' => $imgCount]);
+        return view('maisonneuve.show', ['etudiant' => $etudiant, 'ville' => $ville, 'imgCount' => $imgCount, 'email' => $email]);
     }
 
     /**
@@ -90,7 +103,6 @@ class MaisonneuveController extends Controller
         $etudiant->update([
             'nom' => $request->nom,
             'adresse' => $request->adresse,
-            'email' => $request->email,
             'phone' => $request->phone,
             'ddn' => $request->ddn,
             'ville_id' => $request->ville_id

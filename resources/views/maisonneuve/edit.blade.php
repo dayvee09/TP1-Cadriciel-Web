@@ -28,10 +28,6 @@
                                 <input type="text" name="phone" id="phone" class="form-control mt-2" value="{{$etudiant->phone}}">
                             </div>
                             <div class="control-group">
-                                <label for="email">Email</label>
-                                <input type="text" name="email" id="email" class="form-control mt-2" value="{{$etudiant->email}}">
-                            </div>
-                            <div class="control-group">
                                 <label for="ddn">Date de naissance</label>
                                 <input type="text" name="ddn" id="ddn" class="form-control mt-2" value="{{$etudiant->ddn}}">
                             </div>

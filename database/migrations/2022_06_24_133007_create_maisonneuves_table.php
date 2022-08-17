@@ -18,13 +18,16 @@ class CreateMaisonneuvesTable extends Migration
             $table->string('nom', 100);
             $table->string('adresse', 100);
             $table->string('phone', 20);
-            $table->string('email', 50)->unique();
             $table->string('ddn', 20);
             // $table->foreign('ville_id')->references('id')->on('villes');
             $table->timestamps();
 
             $table->foreignId('ville_id')
                 ->constrained("villes")
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('users_id')
+                ->constrained("users")
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

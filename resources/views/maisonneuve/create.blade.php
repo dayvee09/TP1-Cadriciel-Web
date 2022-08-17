@@ -29,6 +29,10 @@
                                 <input type="text" name="email" id="email" class="form-control mt-2">
                             </div>
                             <div class="control-group">
+                                <label for="password">Mot de passe</label>
+                                <input type="text" name="password" id="password" class="form-control mt-2">
+                            </div>
+                            <div class="control-group">
                                 <label for="ddn">Date de naissance</label>
                                 <input type="text" name="ddn" id="ddn" class="form-control mt-2">
                             </div>

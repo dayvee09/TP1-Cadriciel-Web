@@ -20,6 +20,7 @@
                     @php $imgCount = 1 @endphp
 
                     <!-- Contrairement au forelse, le foreach ne donne pas la possibilité d'envoyer un message s'il n'y a pas de correspondance -->
+
                     @forelse($posts as $post)
                     <!-- 2e paramètre est le post id pour nous amener à l'article en question. Pratique quand on change de serveur et que les routes changent -->
                     @if ($postCount == 1)
