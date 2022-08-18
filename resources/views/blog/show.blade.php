@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 pt-2">
-            <a href="{{ route('blog')}}" class="btn btn-primary btn-sm">Retourner</a>
+            <a href="{{ route('blogs', $blogPost->blogHasUser->id)}}" class="btn btn-primary btn-sm">@lang('lang.text_return')</a>
             <hr>
             @if ($title[0]->title == "")
             <div class="control-group">@lang('lang.text_no_traduction')</div>
@@ -14,12 +14,12 @@
             <a href="{{route('blog.showPdf', $blogPost->id)}}" class="btn btn-outline-warning">PDF</a>
             <hr>
             @if ( $blogPost->blogHasUser->id == Auth::user()->id )
-            <a href="{{route('blog.edit', $blogPost->id)}}" class="btn btn-outline-primary">Modifier l'article</a>
+            <a href="{{route('blog.edit', $blogPost->id)}}" class="btn btn-outline-primary">@lang('lang.text_modify_article')</a>
             <hr>
             <form method="post">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-outline-danger">Supprimer</button>
+                <button class="btn btn-outline-danger">@lang('lang.text_delete_article')</button>
             </form>
             @else
             @endif

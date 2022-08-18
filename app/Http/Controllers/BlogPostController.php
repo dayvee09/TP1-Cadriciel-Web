@@ -45,6 +45,7 @@ class BlogPostController extends Controller
      */
     public function store(Request $request)
     {
+
         $newBlog = BlogPost::create([
             'title' => $request->title,
             'title_fr' => $request->title_fr,
@@ -91,6 +92,7 @@ class BlogPostController extends Controller
      */
     public function update(Request $request, BlogPost $blogPost)
     {
+
         $blogPost->update([
             'title' => $request->title,
             'body' => $request->body

@@ -14,7 +14,7 @@
     <p>
         {!! $blogPost->body !!}
     </p>
-    <p>Auteur: {{ $blogPost->blogHasUser->nom }}</p>
+    <p>@lang('lang.text_author'): {{ $blogPost->blogHasUser->nom }}</p>
     <hr>
 </body>
 

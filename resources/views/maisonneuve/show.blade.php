@@ -6,23 +6,23 @@
     @php $imgCount = $imgCount % 10 @endphp
     <div class="row">
         <div class="col-12 pt-2">
-            <a href="{{ route('maisonneuve') }}" class="btn btn-primary btn-sm">Retourner</a>
+            <a href="{{ route('maisonneuve') }}" class="btn btn-primary btn-sm">@lang('lang.text_return')</a>
             <hr>
             <h1 class="display-one">{{ ucfirst($etudiant->nom) }}</h1>
             <img src={{asset('img/' . $imgCount . '.jpg')}} class="img-thumbnail" alt="user-profil">
             <hr>
-            <p><strong>Adresse:</strong> {!! $etudiant->adresse !!}</p>
-            <p><strong>Email:</strong> {!! $email[0]->email !!}</p>
-            <p><strong>Date de naissance: </strong>{!! $etudiant->ddn !!}</p>
-            <p><strong>Numéro de téléphone: </strong>{!! $etudiant->phone !!}</p>
-            <p><strong>Ville:</strong> {!! $ville->nom !!}</p>
+            <p><strong>@lang('lang.text_new_address'):</strong> {!! $etudiant->adresse !!}</p>
+            <p><strong>@lang('lang.text_new_mail'):</strong> {!! $email[0]->email !!}</p>
+            <p><strong>@lang('lang.text_new_birthday'): </strong>{!! $etudiant->ddn !!}</p>
+            <p><strong>@lang('lang.text_new_phone'): </strong>{!! $etudiant->phone !!}</p>
+            <p><strong>@lang('lang.text_new_city'):</strong> {!! $ville->nom !!}</p>
             <hr>
-            <a href="{{route('maisonneuve.edit', $etudiant->id)}}" class="btn btn-outline-primary">Modifier l'étudiant</a>
+            <a href="{{route('maisonneuve.edit', $etudiant->id)}}" class="btn btn-outline-primary">@lang('lang.text_modify_student')</a>
             <hr>
             <form method="post">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-outline-danger">Supprimer</button>
+                <button class="btn btn-outline-danger">@lang('lang.text_delete_student')</button>
             </form>
         </div>
     </div>
@@ -42,11 +42,11 @@ else { @endphp
             <h1 class="display-one">{{ ucfirst($etudiant->nom) }}</h1>
             <img src={{asset('img/' . $imgCount . '.jpg')}} class="img-thumbnail" alt="user-profil">
             <hr>
-            <p><strong>Adresse:</strong> {!! $etudiant->adresse !!}</p>
-            <p><strong>Email:</strong> {!! $email[0]->email !!}</p>
-            <p><strong>Date de naissance: </strong>{!! $etudiant->ddn !!}</p>
-            <p><strong>Numéro de téléphone: </strong>{!! $etudiant->phone !!}</p>
-            <p><strong>Ville:</strong> {!! $ville->nom !!}</p>
+            <p><strong>@lang('lang.text_new_address'):</strong> {!! $etudiant->adresse !!}</p>
+            <p><strong>@lang('lang.text_new_mail'):</strong> {!! $email[0]->email !!}</p>
+            <p><strong>@lang('lang.text_new_birthday'): </strong>{!! $etudiant->ddn !!}</p>
+            <p><strong>@lang('lang.text_new_phone'): </strong>{!! $etudiant->phone !!}</p>
+            <p><strong>@lang('lang.text_new_city'):</strong> {!! $ville->nom !!}</p>
         </div>
     </div>
 </div>

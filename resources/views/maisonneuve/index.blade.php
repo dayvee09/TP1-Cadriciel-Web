@@ -5,12 +5,12 @@
         <div class="row">
             <div class="col-12 pt-2">
                 <div class="row">
-                    <div class="col-8">
-                        <h1 class="display-one">Liste des étudiants du collège de maisonneuve</h1>
+                    <div class="col-8 m-4">
+                        <h1 class="display-one">@lang('lang.text_student_list')</h1>
                     </div>
                     <div class="row">
-                        <div class="col-4">
-                            <a href="{{ route('maisonneuve.create') }}" class="btn btn-primary btn-sm mt-5">Ajouter un étudiant</a>
+                        <div class="col-4 m-4">
+                            <a href="{{ route('maisonneuve.create') }}" class="btn btn-primary btn-sm mt-5">@lang('lang.text_student_add')</a>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     @endif
                     @php $imgCount++ @endphp
                     @empty
-                    <div class="text-warning">Aucun étudiant disponible</div>
+                    <div class="text-warning">@lang('lang.text_student_empty')</div>
                     @endforelse
                 </div>
 

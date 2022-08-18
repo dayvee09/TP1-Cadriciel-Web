@@ -43,6 +43,15 @@ class MaisonneuveController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+            'nom' => 'required|min:1:max:30',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|max:10',
+            'adresse' => 'required|min:2|max:60',
+            'phone' => 'required|numeric|digits:10',
+            'ddn' => 'required|before:today',
+        ]);
+
         $newUser = User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -60,7 +69,7 @@ class MaisonneuveController extends Controller
         ]);
 
         // return $newEtudiant;
-        return redirect(route('maisonneuve.show', $newEtudiant->id));
+        return redirect(route('maisonneuve.show', $newEtudiant->id))->withErrors('Credential does not match');
     }
 
     /**
@@ -100,6 +109,13 @@ class MaisonneuveController extends Controller
      */
     public function update(Request $request, Maisonneuve $etudiant)
     {
+
+        $request->validate([
+            'adresse' => 'required|min:2|max:60',
+            'phone' => 'required|numeric|digits:10',
+            'ddn' => 'required|date_format:Y-M-D|before:today',
+        ]);
+
         $etudiant->update([
             'nom' => $request->nom,
             'adresse' => $request->adresse,

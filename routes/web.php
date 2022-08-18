@@ -5,6 +5,7 @@ use App\Http\Controllers\MaisonneuveController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\RepertoireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,13 @@ Route::get('blog-edit/{blogPost}', [BlogPostController::class, 'edit'])->name('b
 Route::put('blog-edit/{blogPost}', [BlogPostController::class, 'update'])->name('blog.update')->middleware('auth');
 Route::delete('blog/{blogPost}', [BlogPostController::class, 'destroy'])->name('blog.delete')->middleware('auth');
 Route::get('blog-pdf/{blogPost}', [BlogPostController::class, 'showPDF'])->name('blog.showPdf')->middleware('auth');
+
+// Répertoire
+
+Route::get('repertoire', [RepertoireController::class, 'index'])->name('repertoire')->middleware('auth');
+Route::get('repertoire/{repertoire}', [RepertoireController::class, 'show'])->name('repertoire.show')->middleware('auth');
+Route::get('repertoire-create', [RepertoireController::class, 'create'])->name('repertoire.create')->middleware('auth');
+Route::post('repertoire-create', [RepertoireController::class, 'store'])->name('repertoire.create.post')->middleware('auth');
+Route::get('repertoire-edit/{repertoire}', [RepertoireController::class, 'edit'])->name('repertoire.edit')->middleware('auth');
+Route::put('repertoire-edit/{repertoire}', [RepertoireController::class, 'update'])->name('repertoire.update')->middleware('auth');
+Route::delete('repertoire/{repertoire}', [RepertoireController::class, 'destroy'])->name('repertoire.delete')->middleware('auth');

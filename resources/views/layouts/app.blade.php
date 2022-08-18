@@ -12,7 +12,7 @@
 
 <body>
     @php $locale = session()->get('locale'); @endphp
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,11 +26,11 @@
                     @else
                     <a class="nav-link" href="{{ route('logout')}}">Logout</a>
                     @endguest
-                    <a class="nav-link @if($locale=='fr') text-primary @endif" href="{{ route('lang', 'fr')}}">Français</a>
-                    <a class="nav-link @if($locale=='en') text-primary @endif" href="{{ route('lang', 'en')}}">English</a>
-                    <a class="nav-link @if($locale=='en') text-primary @endif" href="{{ route('maisonneuve')}}">Liste des étudiants</a>
+                    <a class="nav-link @if($locale=='fr') text-primary @endif" href="{{ route('lang', 'fr')}}">@lang('lang.text_french')</a>
+                    <a class="nav-link @if($locale=='en') text-primary @endif" href="{{ route('lang', 'en')}}">@lang('lang.text_english')</a>
+                    <a class="nav-link" href="{{ route('maisonneuve')}}">@lang('lang.text_student_list')</a>
                     @if(Auth::check())
-                    <a class="nav-link @if($locale=='en') text-primary @endif" href="{{ route('dashboard')}}">Dashboard</a>
+                    <a class="nav-link" href="{{ route('dashboard')}}">@lang('lang.text_dashboard')</a>
                     @endif
                 </div>
             </div>
