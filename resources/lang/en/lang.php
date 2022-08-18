@@ -5,7 +5,6 @@ return [
     'text_registration' => 'Register',
     'text_login'    => 'Login',
     'text_our_blog' => 'Our Blog',
-    'text_good_reading' => 'Enjoy the reading',
 
     //blog.create
     'text_add_new_message'  => 'Add a new message',

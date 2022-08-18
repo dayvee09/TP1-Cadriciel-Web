@@ -113,7 +113,7 @@ class MaisonneuveController extends Controller
         $request->validate([
             'adresse' => 'required|min:2|max:60',
             'phone' => 'required|numeric|digits:10',
-            'ddn' => 'required|date_format:Y-M-D|before:today',
+            'ddn' => 'required|before:today',
         ]);
 
         $etudiant->update([

@@ -7,7 +7,7 @@
         <div class="col-12 pt-2">
             <h1 class="display-4 m-lg-4">@lang('lang.text_new_student')</h1>
             <div class="card mt-5">
-                <div class="card-header">Nouvel étudiant</div>
+                <div class="card-header">@lang('lang.text_new_student')</div>
                 <div class="card-body">
                     <form method="post">
                         @csrf
